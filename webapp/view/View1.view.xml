@@ -1,0 +1,119 @@
+<mvc:View
+    controllerName="sap.treinamento.json.databindingjson.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+
+>
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+                    <VBox class="sapUiSmallMargin">
+                        <f:SimpleForm id="SimpleFormChange354"
+                            editable="true"
+                            layout="ResponsiveGridLayout"
+                            title="Cadastro de Pessoa"
+                            labelSpanXL="3"
+                            labelSpanL="3"
+                            labelSpanM="3"
+                            labelSpanS="12"
+                            adjustLabelSpan="false"
+                            emptySpanXL="4"
+                            emptySpanL="4"
+                            emptySpanM="4"
+                            emptySpanS="0"
+                            columnsXL="1"
+                            columnsL="1"
+                            columnsM="1" >
+                            <f:content>
+                                <Label text="Nome" />
+                                <Input id="inNome" value="{pessoas>/tblpessoas/nome}" />
+
+                                <Label text="Sobrenome" />
+                                <Input id="inSobrenome" value="" />
+
+                                <Label text="E-mail" />
+                                <Input id="inEmail" value=""/>
+
+                                <Label text="Bairro" />
+                                <Input id="inBairro" value=""/>
+                                
+                                <Label text="CEP" />
+                                <Input id="inCep" value=""/>
+                                
+                                <Label text="Estado" />
+                                <Select id="slEstado" selectedKey="">
+                                    <items>
+                                        <core:Item text="Pernambuco" key="PE"/>
+                                        <core:Item text="São Paulo" key="SP"/>
+                                        <core:Item text="Rio de Janeiro" key="RJ"/>
+                                    </items>
+                                </Select>
+                                <Button id="btnCreate" type="Emphasized" text="Create" press="onCreateModel"/>
+                            </f:content>
+                        </f:SimpleForm>
+                    </VBox>
+
+                    <VBox class="sapUiSmallMargin">
+                    <Table id="idProductsTable"
+                            inset="false"
+                            items="{
+                                path: 'pessoas>/tblpessoas'
+                            }">
+                            <columns>
+                                <Column
+                                    width="12em">
+                                    <Text text="Nome" />
+                                </Column>
+                                <Column
+                                    minScreenWidth="Tablet"
+                                    demandPopin="true">
+                                    <Text text="E-mail" />
+                                </Column>
+                                <Column
+                                    minScreenWidth="Desktop"
+                                    demandPopin="true"
+                                    hAlign="End">
+                                    <Text text="Bairro" />
+                                </Column>
+                                <Column
+                                    minScreenWidth="Desktop"
+                                    demandPopin="true"
+                                    hAlign="Center">
+                                    <Text text="CEP" />
+                                </Column>
+                                <Column
+                                    hAlign="End">
+                                    <Text text="Estado" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <ObjectIdentifier
+                                            title="{pessoas>nome}"
+                                            text="{pessoas>sobrenome}"/>
+                                        <Text
+                                            text="{pessoas>email}" />
+                                        <Text
+                                            text="{pessoas>bairro}" />
+                                        <Text
+                                            text="{pessoas>cep}" />
+                                        <Text
+                                            text="{pessoas>estado}" />                                                                                        
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </VBox>                    
+                </content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
